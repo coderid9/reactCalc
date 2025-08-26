@@ -1,34 +1,50 @@
+import { useState } from "react";
+
 function Layout() {
+  const [result,setResult]=useState(null);
+  const [calculation,setCalculation]=useState("");
+
+  const hadleCalc = ()=>{
+    try {
+      setResult(eval(calculation));
+    } catch (error) {
+      alert("please Enter valid calulation")
+    }
+  }
+
   return (
     <div id="calc">
       <div className="display">
-        <p className="calculation"></p>
-        <p className="result">00</p>
+        <p className="calculation">{calculation}</p>
+        <p className="result">{result}</p>
       </div>
       <div className="calc-buttons">
-        <button className="clean">Clean</button>
-        <button className="operator">/</button>
-        <button className="operator">X</button>
-        <button className="operator">-</button>
+        <button className="clean" onClick={()=>{
+          setCalculation("")
+          setResult(null)
+          }}>Clean</button>
+        <button className="operator" onClick={()=>setCalculation(prev=>prev+"/")}>/</button>
+        <button className="operator" onClick={()=>setCalculation(prev=>prev+"*")}>X</button>
+        <button className="operator" onClick={()=>setCalculation(prev=>prev+"-")}>-</button>
 
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button className="operator">+</button>
+        <button onClick={()=>setCalculation(prev=>prev+"7")}>7</button>
+        <button onClick={()=>setCalculation(prev=>prev+"8")}>8</button>
+        <button onClick={()=>setCalculation(prev=>prev+"9")}>9</button>
+        <button className="operator" onClick={()=>setCalculation(prev=>prev+"+")}>+</button>
 
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button className="operator">%</button>
+        <button onClick={()=>setCalculation(prev=>prev+"4")} >4</button>
+        <button onClick={()=>setCalculation(prev=>prev+"5")} >5</button>
+        <button onClick={()=>setCalculation(prev=>prev+"6")} >6</button>
+        <button onClick={()=>setCalculation(prev=>prev+"%")}  className="operator">%</button>
 
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button className="cut">x</button>
+        <button onClick={()=>setCalculation(prev=>prev+"1")}>1</button>
+        <button onClick={()=>setCalculation(prev=>prev+"2")}>2</button>
+        <button onClick={()=>setCalculation(prev=>prev+"3")}>3</button>
+        <button onClick={()=>setCalculation(prev=>prev.slice(0,[prev.length-1]))} className="cut">x</button>
 
-        <button>.</button>
-        <button>0</button>
-        <button className="equal">=</button>
+        <button onClick={()=>setCalculation(prev=>prev+".")}>.</button>
+        <button onClick={()=>setCalculation(prev=>prev+"0")}>0</button>
+        <button className="equal" onClick={()=>hadleCalc()}>=</button>
       </div>
     </div>
   );
