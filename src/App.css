@@ -16,7 +16,7 @@
 }
 #calc {
   height: 80dvh;
-  width: min(95%, 425px);
+  width: min(98%, 425px);
   background: transparent;
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.7);
@@ -131,4 +131,48 @@
 
 .calc-buttons button.equal {
   grid-column: 3/5;
+}
+
+/* responsive css */
+
+@media screen and (max-width: 480px) {
+  #root{
+    align-items: flex-end;
+  }
+  #calc{
+    height: 95dvh;
+  }
+  .design_div {
+    height: 15rem;
+  }
+  @keyframes animate1 {
+    to {
+      bottom: -5%;
+    }
+  }
+  @keyframes animate2 {
+    to {
+      top: -5%;
+    }
+  }
+  .calc-buttons button:hover,
+  .calc-buttons button.operator:hover,
+  .calc-buttons button.equal:hover,
+  .calc-buttons button.cut:hover,
+  .calc-buttons button.clean:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  }
+  .calc-buttons button.operator:active {
+    background: rgb(111, 34, 255);
+  }
+  .calc-buttons button.equal:active {
+    background: rgb(0, 255, 0);
+  }
+  .calc-buttons button.clean:active {
+    background: red;
+  }
+  .calc-buttons button.cut:active {
+    background: orangered;
+  }
 }
