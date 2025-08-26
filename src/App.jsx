@@ -5,6 +5,9 @@ function App() {
 
   return (
     <>
+      <div className="design_div"></div>
+      <div className="design_div"></div>
+      <div className="design_div"></div>
       <Layout/>
     </>
   )
