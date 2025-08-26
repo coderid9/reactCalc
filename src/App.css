@@ -1,0 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root{
+  height: 100dvh;
+  width: 100%;
+  background: linear-gradient(#222,purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#calc{
+  height: 80dvh;
+  width: min(95%,425px);
+  background: transparent;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
